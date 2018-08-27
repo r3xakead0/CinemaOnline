@@ -1,0 +1,10 @@
+﻿@model IEnumerable<CinemaOnline.Models.Movie>
+
+@foreach (var m in Model)
+{
+    <a href='@Url.Action("Movie", "Home",  new {id=m.MovieId })' class="card ">
+        <img src=@m.ImgLogoSrc alt=@m.NameM>
+        <p>@m.NameM</p>
+        <p>Год выпуска: <span> @m.Age </span></p>
+    </a>
+}

@@ -1,0 +1,45 @@
+﻿@model CinemaOnline.Models.Movie
+
+@{
+    ViewBag.Title = "Удаление";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<main class="login">
+    <div class="container-login">
+        <div>
+            <h2>Удаление</h2>
+            <div class="form-login">
+                <p>
+                   @Html.DisplayNameFor(model => model.NameM):  @Html.DisplayFor(model => model.NameM)
+                </p>
+                <p>
+                   @Html.DisplayNameFor(model => model.Age):  @Html.DisplayFor(model => model.Age)
+                </p>
+                <p>@Html.DisplayNameFor(model => model.Time):  @Html.DisplayFor(model => model.Time)</p>
+                <p>@Html.DisplayNameFor(model => model.Producer):  @Html.DisplayFor(model => model.Producer)</p>
+
+                <p>
+                   @Html.DisplayNameFor(model => model.Actor):  @Html.DisplayFor(model => model.Actor)
+                </p>
+                <p>
+                   @Html.DisplayNameFor(model => model.Genre): @Html.DisplayFor(model => model.Genre)
+                </p>
+                <p>
+                   @Html.DisplayNameFor(model => model.Country): @Html.DisplayFor(model => model.Country)
+                </p>
+            </div>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Удалить" class = "form-link"  />
+                    @Html.ActionLink("Список фильмов", "Index", "Admin", null, new { @class = "form-link" })
+                </div>
+            }
+        </div>
+
+    </div>
+</main>

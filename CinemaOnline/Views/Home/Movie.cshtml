@@ -1,0 +1,80 @@
+﻿@model CinemaOnline.Models.ContainerMovie
+@{
+    ViewBag.Title = Model.OneMovie.NameM + " - смотреть онлайн бесплатно в хорошем качестве";
+}
+
+@Html.Partial("Partical/_Film", Model.Movies.Take(7))
+
+@Html.Partial("Partical/_Genre", Model.Movies)
+
+<section class="content-main">
+    <div class="movie-main-cont">
+        <div class="info-movie">
+            <div class="img-logo">
+                <img src=@Model.OneMovie.ImgLogoSrc alt=@Model.OneMovie.NameM>
+            </div>
+            <div class="info-text">
+                <div class="r-1">
+                    <div class="info-item"><p>Название</p></div>
+                    <div class="info-answer"><p><span>@Model.OneMovie.NameM</span></p></div>
+                </div>
+                <div class="r-2">
+                    <div class="info-item"><p>Год</p></div>
+                    <div class="info-answer"><p>@Model.OneMovie.Age</p></div>
+                </div>
+                <div class="r-1">
+                    <div class="info-item"><p>Страна</p></div>
+                    <div class="info-answer"><p> @Model.OneMovie.Country</p></div>
+                </div>
+                <div class="r-2">
+                    <div class="info-item"><p>Жанр</p></div>
+                    <div class="info-answer"><p>@Model.OneMovie.Genre</p></div>
+                </div>
+                <div class="r-1">
+                    <div class="info-item"><p>Время</p></div>
+                    <div class="info-answer"><p>@Model.OneMovie.Time мин</p></div>
+                </div>
+                <div class="r-2">
+                    <div class="info-item"><p>В главных ролях</p></div>
+                    <div class="info-answer"><p>@Model.OneMovie.Actor</p></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-movie">
+            <h3>Про фильм</h3>
+            <p><span>@Model.OneMovie.Description </span></p>
+        </div>
+        <div class="video-trailer">
+            <iframe width="960" height="540" class="ifram" src=@Model.OneMovie.VideoLinkSrc frameborder="0" scrolling="no" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        <div class="commit">
+            <div class="title-cm">Комментарии:</div>
+            <div class="form-com">
+                @*
+                    Не доделал
+                *@
+                  @using (Html.BeginForm("Comment", "Home", FormMethod.Post, new { @id = "comment-form", @clas = "comment-form" }))
+                    {
+                      <p>@Html.ValidationSummary(true, "", new { @class = "text-danger" })</p>
+                        <div id="comq" class="contact-form">
+                            @Html.EditorFor(model => model.Title, new { @class = "comment"})
+                            @Html.LabelFor(model=> model.Title)
+                            <p> @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger"})</p>
+                        </div>
+                        <input type="hidden" id="MovieId" name="MovieId" value= @Model.OneMovie.MovieId />
+                        @Html.TextAreaFor(model=>model.Content, new { @class = "comment", @rows = 6, @cols = 70 } )
+                        <p> @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger"})</p>
+                        <p style="color: red; font-size:14px; margin-top: -14px;">*Заполните все поля</p>
+                        <div class="form-input">
+                            <input name="submit" type="submit" class="submit" value="Отправить">
+                        </div>
+                    }
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("Partical/_FilmRight", Model.Movies.OrderByDescending(s => s.DownloadDate).Take(4))
+
+</section>
+

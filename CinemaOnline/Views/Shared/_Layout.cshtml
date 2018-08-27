@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="GidOnline - твой гид в мире кино. Онлайн ресурс для просмотра фильмов и сериалов.">
+    <meta name="keywords" content="GidOnline, Онлайн сериалы, Онлайн смотреть фильмы">
+    <link rel="icon" href="~/image/ServiceImg/h-logo.png" type="image/x-icon">
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @*@Scripts.Render("~/bundles/modernizr")*@
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href='@Url.Action("Index", "Home", null)'><img src="~/image/ServiceImg/gidonline.png" title="GidOnline" alt=""></a>
+            </div>
+            <div class="navigation">
+                <div class="search">
+                    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @id = "search" }))
+                    {
+                        <input type="text" name="inputSearch" id="inputSearch" title="Search" class="inputSearch" placeholder="Поиск...">
+                        <input id="btnSearch" title="Search" type="submit" name="submit" class="btnSearch" value=" Поиск">
+                    }
+                    @*<form method="post" name="search" id="search" action="#">
+                        <input type="text" name="inputSearch" id="inputSearch" title="Search" class="inputSearch" placeholder="Поиск...">
+                        <input id="btnSearch" title="Search" type="submit" name="submit" class="btnSearch" value=" Поиск">
+                    </form>*@
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="#" class="item-nav">Новинки</a><span>|</span></li>
+                        <li><a href="#" class="item-nav">Премьеры</a><span>|</span></li>
+                        <li><a href="#" class="item-nav">Навигатор</a><span>|</span></li>
+                        <li> @Html.ActionLink("Случайные", "random", "Home", null, new { @class= "item-nav" })@*<a href="#" class="item-nav">Случайные</a>*@</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    @RenderBody()
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="info">
+                <p> ©&nbsp;<a href='@Url.Action("Index", "Home")'>GidOnline</a> - Твой гид в мире кино!</p>
+            </div>
+            <div class="info-link">
+                <p>
+                    @Html.ActionLink("Пользователю", "Faq", "Home") ♦ @Html.ActionLink("Правообладателям", "Rights", "Home") ♦ @Html.ActionLink("Контакты", "Contact", "Home")
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    @*@Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)*@
+</body>
+</html>

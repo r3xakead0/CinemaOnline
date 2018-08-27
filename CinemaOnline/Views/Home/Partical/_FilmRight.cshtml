@@ -1,0 +1,35 @@
+﻿@model IEnumerable<CinemaOnline.Models.Movie>
+
+<div class="right">
+        <div class="open">
+            @if (!User.Identity.IsAuthenticated)
+            {
+                @Html.RouteLink("Вход", new { controller = "Account", action = "Login" }, new { @class = "btn btn-Enter" })
+                @Html.RouteLink("Регистрация", new { controller = "Account", action = "Register" }, new { @class = "btn btn-Registr" })
+                @Html.RouteLink("X", new { controller = "Account", action = "Logoff" }, new { @class = "btn btn-Exit", @title = "Выход", @style = "display:none" })
+            }
+            else
+            {
+                @Html.RouteLink("Вход", new { controller = "Account", action = "Login" }, new { @class = "btn btn-Enter", @style = "display:none" })
+                @Html.RouteLink("Регистрация", new { controller = "Account", action = "Register" }, new { @class = "btn btn-Registr", @style = "display:none" })
+                <p>Привет, @User.Identity.Name!</p>
+                @Html.RouteLink("X", new { controller = "Account", action = "Logoff" }, new { @class = "btn btn-Exit", @title = "Выход" })
+            }
+        </div>
+        <div class="cinema">
+            <div class="now-cinema">
+                <h2>Рекомендуем @*Сегодня в кино*@ <img src="~/image/ServiceImg/Arrow.png" alt=""></h2>
+            </div>
+
+            @foreach (var m in Model)
+            {
+                <a href='@Url.Action("Movie", "Home",  new {id=m.MovieId })' class="card ">
+                    <div>
+                        <img src=@m.ImgLogoSrc alt=@m.NameM>
+                        <p>@m.NameM</p>
+                    </div>
+                </a>
+            }
+
+        </div>
+    </div>

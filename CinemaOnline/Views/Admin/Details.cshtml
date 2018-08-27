@@ -1,0 +1,121 @@
+﻿@model CinemaOnline.Models.Movie
+
+@{
+    ViewBag.Title = "Детальнее -" + @Model.NameM;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<main class="login">
+    <div class="container-admin">
+        <div>
+            <h2>@Model.NameM - Детальнее</h2>
+
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.NameM)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NameM)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Age)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Age)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DownloadDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DownloadDate)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Rating)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Rating)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Time)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Time)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.VideoLinkSrc)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.VideoLinkSrc)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ImgLogoSrc)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ImgLogoSrc)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Producer)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Producer)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Actor)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Actor)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Genre)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Genre)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Country)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Country)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Список фильмов", "Index", "Admin", null, new { @class = "form-link1" }) |
+            @Html.ActionLink("Редактирование", "Edit", "Admin", new { id = Model.MovieId }, new { @class = "form-link1" }) |
+            @Html.ActionLink("Удаление", "Delete", "Admin", new { id = Model.MovieId }, new { @class = "form-link1" })
+
+
+        </p>
+    </div>
+</main>

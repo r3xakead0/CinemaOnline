@@ -1,0 +1,13 @@
+﻿@model IEnumerable<CinemaOnline.Models.Movie>
+@{
+    ViewBag.Title = "GidOnline";
+}
+@Html.Partial("Partical/_Film", Model.Take(7))
+@Html.Partial("Partical/_Genre", Model)
+<section class="content-main">
+    <div class="container">
+        @Html.Partial("Partical/_MainListFilm", Model.OrderByDescending(m=>m.DownloadDate).Take(16))
+        <div class="nav-bnt">Переходы по страницам 1 2 3 4 ... 100</div>
+    </div>
+        @Html.Partial("Partical/_FilmRight", Model.Where(m => m.Genre.Contains("комедия")).OrderByDescending(s => s.DownloadDate).Take(4))
+</section>

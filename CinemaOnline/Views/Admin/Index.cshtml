@@ -1,0 +1,85 @@
+﻿@model IEnumerable<CinemaOnline.Models.Movie>
+
+@{
+    ViewBag.Title = "Список";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="login">
+    <div class="container-admin">
+        <div>
+
+            <p>
+                @Html.ActionLink("Добавление фильма", "Create", "Admin", null, new { @class = "form-link" }) |  @Html.ActionLink("К главной странице", "Index", "Home", null, new { @class = "form-link" })
+            </p>
+            <table  border="1" class="table" cellpadding="10" align="center" >
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NameM)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Age)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DownloadDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Rating)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Producer)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Actor)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Genre)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Country)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NameM)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Age)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DownloadDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Rating)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Producer)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Actor)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Genre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Country)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Редактирование", "Edit", "Admin",new { id = item.MovieId }, new { @class = "form-link1" } ) 
+                            @Html.ActionLink("Просмотр", "Details", "Admin", new { id = item.MovieId }, new { @class = "form-link1" }) 
+                            @Html.ActionLink("Удаление", "Delete", "Admin", new { id = item.MovieId }, new { @class = "form-link1" })
+                           
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+        </div>
+    </div>
+</main>
+    

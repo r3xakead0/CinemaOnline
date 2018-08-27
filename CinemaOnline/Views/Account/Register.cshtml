@@ -1,0 +1,64 @@
+﻿@model CinemaOnline.Models.RegisterModel
+
+@{
+    ViewBag.Title = "Регистрация";
+}
+
+<main class="login">
+    <div class="container-login">
+
+       
+
+        @using (Html.BeginForm())
+        {
+            <h2>Регистрация</h2>
+            @Html.AntiForgeryToken()
+            
+            <div class="form-registr">
+                <p>@Html.ValidationSummary(true, "", new { @class = "text-danger" })</p>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off" } })
+                       <p> @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                       <p> @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "control-label" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                       <p> @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off" } })
+                      <p>  @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Зарегистрироваться" class="btn form-link" />
+                </div>
+            </div>
+        }
+
+        <div class="login-link">
+            @Html.ActionLink("На главную", "Index", "Home", new { @class = "form-link" })
+            @Html.ActionLink("Войти", "Login", "Account", new { @class = "form-link" })
+        </div>
+
+    </div>
+</main>
