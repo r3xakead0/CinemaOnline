@@ -1,0 +1,23 @@
+﻿@model IEnumerable<CinemaOnline.Models.Comment>
+
+@if ( Model.Any() == true)
+{
+    foreach (var cm in Model)
+    {
+
+        <div class="commet-one">
+            <div class="author-time">
+                <span>@cm.Title</span> <span>@cm.TimeC.ToString("MM/dd/yyyy")</span>
+            </div>
+            <div class="ava-content">
+                <img src="~/image/ServiceImg/noav.png" alt="" width="60px">
+                <p>@cm.Content</p>
+            </div>
+        </div>
+    }
+
+}
+else{ 
+        <p class="no-commet"> У фильма еще нет комментарий....</p> 
+}
+

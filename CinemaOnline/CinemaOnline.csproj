@@ -189,12 +189,18 @@
     <Content Include="image\LogoMovieImg\cef6c1e5d17_200x300.jpg" />
     <Content Include="image\LogoMovieImg\cef6ce5d17_200x300.jpg" />
     <Content Include="image\LogoMovieImg\cef6ce5d7_200x300.jpg" />
+    <Content Include="image\LogoMovieImg\d7d4a1c485f0_200x300.jpg" />
+    <Content Include="image\LogoMovieImg\heda54184e18b8ue97h79v.jpg" />
+    <Content Include="image\LogoMovieImg\heda5484e18b8ue97h79v.jpg" />
+    <Content Include="image\LogoMovieImg\x881e9cc0d79dzi62s56n.jpg" />
     <Content Include="image\ServiceImg\404Error.png" />
     <Content Include="image\ServiceImg\Arrow.png" />
     <Content Include="image\ServiceImg\bg1.jpg" />
+    <Content Include="image\ServiceImg\com.png" />
     <Content Include="image\ServiceImg\emel.png" />
     <Content Include="image\ServiceImg\gidonline.png" />
     <Content Include="image\ServiceImg\h-logo.png" />
+    <Content Include="image\ServiceImg\noav.png" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -233,6 +239,7 @@
     <Content Include="Views\Admin\Details.cshtml" />
     <Content Include="Views\Admin\Edit.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Home\Partical\_Commet.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

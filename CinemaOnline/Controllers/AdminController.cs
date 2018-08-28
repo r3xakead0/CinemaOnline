@@ -50,8 +50,14 @@ namespace CinemaOnline.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "MovieId,NameM,Description,Age,DownloadDate,Rating,Time,VideoLinkSrc,ImgLogoSrc,Producer,Actor,Genre,Country")] Movie movie)
         {
+            
+            if (db.Movies.Where(m => m.NameM.Contains(movie.NameM)).Any())
+            {
+                ModelState.AddModelError("NameM", "Такое название уже существует");
+            }
             if (ModelState.IsValid)
             {
+                movie.DownloadDate = DateTime.Now;
                 db.Movies.Add(movie);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");

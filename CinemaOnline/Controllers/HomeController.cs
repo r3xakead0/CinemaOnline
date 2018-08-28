@@ -39,10 +39,10 @@ namespace CinemaOnline.Controllers
         {
             if (!String.IsNullOrWhiteSpace(inputSearch))
             {
-              Movie mv =  db.Movies.Where(m => m.NameM.Contains(inputSearch)).FirstOrDefault();
-                if (mv!=null)
+                Movie mv = db.Movies.Where(m => m.NameM.Contains(inputSearch)).FirstOrDefault();
+                if (mv != null)
                 {
-                    return RedirectToAction("Movie","Home", new { id = mv.MovieId });
+                    return RedirectToAction("Movie", "Home", new { id = mv.MovieId });
                 }
                 else return View("Index", "Home");
             }
@@ -50,14 +50,14 @@ namespace CinemaOnline.Controllers
         }
 
         [Authorize]
-        [OutputCache(Duration = 1)]
-        public ActionResult Movie(int id=1)
+        [OutputCache(Duration = 360)]
+        public ActionResult Movie(int id = 1)
         {
             ContainerMovie cm = new ContainerMovie();
-            if (id>0)
+            if (id > 0)
             {
                 var mv = db.Movies.Where(m => m.MovieId == id).FirstOrDefault();
-                if (mv!=null)
+                if (mv != null)
                 {
                     cm.Comments = db.Comments.Where(c => c.MovieId == mv.MovieId);
                     cm.OneMovie = mv;
@@ -73,12 +73,13 @@ namespace CinemaOnline.Controllers
             Random rnd = new Random();
             int buf = rnd.Next(1, db.Movies.Count());
             Movie i = db.Movies.OrderBy(m => m.MovieId).Skip(--buf).Take(1).First();
-            return RedirectToAction("Movie", "Home", new { id =  i.MovieId});
+            return RedirectToAction("Movie", "Home", new { id = i.MovieId });
         }
 
         [HttpPost]
         public ActionResult comment([Bind(Include = "CommentId,Title,Content, TimeC, MovieId")] ContainerMovie ComMod)
         {
+            if (String.IsNullOrWhiteSpace(ComMod.Title)) { ModelState.AddModelError("Title", "Поле не должно быть пустым");}
             if (ModelState.IsValid)
             {
                 if (ComMod != null)
@@ -88,32 +89,30 @@ namespace CinemaOnline.Controllers
                         Content = ComMod.Content,
                         MovieId = ComMod.MovieId,
                         TimeC = DateTime.Now,
-                        Movie = db.Movies.Where(m=>m.MovieId == ComMod.MovieId).FirstOrDefault() });
+                        Movie = db.Movies.Where(m=>m.MovieId == ComMod.MovieId).FirstOrDefault()
+                    });
                     db.SaveChanges();
                     return RedirectToAction("Movie", "Home", new { id = ComMod.MovieId });
                 }
             }
-            else
-            {
-                return RedirectToAction("Movie", "Home", new { id = ComMod.MovieId });
-            }
+            else{return RedirectToAction("Movie", "Home", new { id = ComMod.MovieId});}
             return RedirectToAction("Movie", "Home", new { id = ComMod.MovieId });
         }
 
-        [OutputCache(Duration = 2)]
+        [OutputCache(Duration = 360)]
         public ActionResult Faq()
         {
             return View();
         }
 
-        [OutputCache(Duration = 2)]
+        [OutputCache(Duration = 360)]
         public ActionResult Contact()
         {
             return View();
         }
 
         [Authorize]
-        [OutputCache(Duration = 2)]
+        [OutputCache(Duration = 360)]
         public ActionResult Rights()
         {
             return View();

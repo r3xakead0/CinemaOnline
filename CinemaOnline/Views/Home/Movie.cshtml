@@ -46,31 +46,31 @@
             <p><span>@Model.OneMovie.Description </span></p>
         </div>
         <div class="video-trailer">
-            <iframe width="960" height="540" class="ifram" src=@Model.OneMovie.VideoLinkSrc frameborder="0" scrolling="no" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe width="980" height="540" class="ifram" src=@Model.OneMovie.VideoLinkSrc frameborder="0" scrolling="no" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="commit">
             <div class="title-cm">Комментарии:</div>
             <div class="form-com">
-                @*
-                    Не доделал
-                *@
-                  @using (Html.BeginForm("Comment", "Home", FormMethod.Post, new { @id = "comment-form", @clas = "comment-form" }))
-                    {
-                      <p>@Html.ValidationSummary(true, "", new { @class = "text-danger" })</p>
+                @using (Html.BeginForm("comment", "Home", FormMethod.Post, new { @id = "comment-form", @clas = "comment-form" }))
+                {
+                        <p>@Html.ValidationSummary(true, "", new { @class = "text-danger" })</p>
                         <div id="comq" class="contact-form">
-                            @Html.EditorFor(model => model.Title, new { @class = "comment"})
-                            @Html.LabelFor(model=> model.Title)
-                            <p> @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger"})</p>
+                            @Html.EditorFor(model => model.Title, new { @class = "comment" })
+                            @Html.LabelFor(model => model.Title)
+                            <p> @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })</p>
                         </div>
-                        <input type="hidden" id="MovieId" name="MovieId" value= @Model.OneMovie.MovieId />
-                        @Html.TextAreaFor(model=>model.Content, new { @class = "comment", @rows = 6, @cols = 70 } )
-                        <p> @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger"})</p>
+                        <input type="hidden" id="MovieId" name="MovieId" value=@Model.OneMovie.MovieId />
+                        @Html.TextAreaFor(model => model.Content, new { @class = "comment", @rows = 6, @cols = 70 })
+                        <p> @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })</p>
                         <p style="color: red; font-size:14px; margin-top: -14px;">*Заполните все поля</p>
                         <div class="form-input">
                             <input name="submit" type="submit" class="submit" value="Отправить">
                         </div>
-                    }
+                }
             </div>
+
+            @Html.Partial("Partical/_Commet", Model.Comments.OrderByDescending(s => s.TimeC))
+
         </div>
     </div>
 
