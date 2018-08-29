@@ -12,6 +12,7 @@ namespace CinemaOnline.Models
         public IEnumerable<Movie> Movies { get; set; }
         public IEnumerable<Comment> Comments { get; set; }
 
+
         [Required(ErrorMessage = "Поле не должно быть пустым")]
         [Display(Name = "Имя")]
         public string Title { get; set; }

@@ -11,27 +11,24 @@ namespace CinemaOnline.Controllers
     public class HomeController : Controller
     {
         MovieContext db = new MovieContext();
-        public ActionResult Index()
+        public int pageSize = 16; 
+        public ActionResult Index(int page =1)
         {
-
-            //db.Movies.Add(new Movie
-            //{
-            //    NameM = "Дэдпул 2",
-            //    Description = "Опасные и очень веселые приключения главного героя продолжаются в фантастическом боевике «Дэдпул 2». После того, как простой парень с отличным чувством юмора Уэйд Уилсон приобрел изуродованную внешность, его жизнь сильно изменилась. Но он также приобрел сверхспособности и стал супергероем по прозвищу Дэдпул, что помогло пережить сложные времена. Теперь жизнь наемника никогда не будет прежней, но в ней есть много хорошего. ",
-            //    Age = 2018,
-            //    DownloadDate = DateTime.Now,
-            //    Time = (float)2.13,
-            //    Rating = (float)8.1,
-            //    Producer = "Хулио Знасиас",
-            //    Actor = "Джош Бролин, Райан Рейнольдс",
-            //    ImgLogoSrc = "/image/LogoMovieImg/cb8f66329_200x300.jpg",
-            //    VideoLinkSrc = "http://pandastream.cc/video/a289951092aa586d/iframe?block_geo=US",
-            //    Genre = "боевик, комедия, фантастика",
-            //    Country = "США"
-            //});
-            //db.SaveChanges();
-
-            return View(db.Movies);
+            MoviessListViewModel model = new MoviessListViewModel
+            {
+                MoviesListAll = db.Movies,
+                moviespage = db.Movies
+                    .OrderByDescending(s => s.DownloadDate)
+                    .Skip((page - 1) * pageSize)
+                    .Take(pageSize),
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = pageSize,
+                    TotalItems = db.Movies.Count()
+                }
+            };
+            return View(model);
         }
 
         [HttpPost]
@@ -49,7 +46,8 @@ namespace CinemaOnline.Controllers
             else return View("Index", "Home");
         }
 
-        [Authorize]
+        //[Authorize]
+        //[ValidateAntiForgeryToken]
         [OutputCache(Duration = 360)]
         public ActionResult Movie(int id = 1)
         {
@@ -68,12 +66,56 @@ namespace CinemaOnline.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        //Menu 
         public ActionResult random()
         {
             Random rnd = new Random();
             int buf = rnd.Next(1, db.Movies.Count());
             Movie i = db.Movies.OrderBy(m => m.MovieId).Skip(--buf).Take(1).First();
             return RedirectToAction("Movie", "Home", new { id = i.MovieId });
+        }
+
+        public ActionResult newsMovie(int page = 1)
+        {
+            MoviessListViewModel model = new MoviessListViewModel
+            {
+                MoviesListAll = db.Movies,
+                moviespage = db.Movies
+                    .Where(m => m.Age == 2018)
+                    .OrderByDescending(s => s.DownloadDate)
+                    .Skip((page - 1) * pageSize)
+                    .Take(pageSize)
+                
+            };
+            model.PagingInfo = new PagingInfo
+            {
+                CurrentPage = page,
+                ItemsPerPage = pageSize,
+                TotalItems = model.moviespage.Count()
+            };
+            return View("Index", model);
+        }
+
+        //Genre
+        public ActionResult Genre(string genre)
+        {
+            int page = 1;
+            MoviessListViewModel model = new MoviessListViewModel
+            {
+                MoviesListAll = db.Movies,
+                moviespage = db.Movies
+                    .Where(m => m.Genre.Contains(genre))
+                    .OrderByDescending(s => s.DownloadDate)
+                    .Skip((page - 1) * pageSize)
+                    .Take(pageSize)
+            };
+            model.PagingInfo = new PagingInfo
+            {
+                CurrentPage = page,
+                ItemsPerPage = pageSize,
+                TotalItems = model.moviespage.Count()
+            };
+            return View("Index", model);
         }
 
         [HttpPost]

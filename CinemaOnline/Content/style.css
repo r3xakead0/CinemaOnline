@@ -20,13 +20,13 @@ input:focus {
 /*
     Header
 */
-    
-.header{
+
+.header {
     width: 1245px;
     height: 140px;
     margin: auto;
     margin-top: 90px;
-    background-color: #1a243a;
+    background-color: #0f1013 /*#1a243a*/;
     border-radius: 20px 20px 0 0;
 }
 
@@ -136,11 +136,11 @@ input:focus {
     Premiere
 */
 
-.premiere{
+.premiere {
     width: 1245px;
     height: 245px;
     margin: 0 auto;
-    background-color: #1a243a;
+    background-color: #0f1013 /*#1a243a*/;
 }
 
 .premiere .container{
@@ -183,11 +183,11 @@ input:focus {
 /*
     Genre
 */
-.genre{
+.genre {
     width: 1245px;
     height: 150px;
     margin: 0 auto;
-    background-color: #1a243a;
+    background-color: #0f1013 /*#1a243a*/;
 }
 
 .genre .container{
@@ -230,13 +230,13 @@ input:focus {
 /*
     Content-main
 */
-.content-main{
+.content-main {
     display: flex;
     width: 1245px;
     min-height: 1350px;
     margin: 0 auto;
     margin-top: -15px;
-    background-color: #1a243a;
+    background-color: #0f1013 /*#0f1013*/;
 }
 
 .content-main .container{
@@ -294,7 +294,7 @@ input:focus {
 .content-main .container .nav-bnt{
    width: 960px;
    height: 35px;
-   padding: 5px;
+   padding: 0 5px;
 }
 
 
@@ -432,11 +432,11 @@ input:focus {
     Footer
 */
 
-.footer{
+.footer {
     width: 1245px;
     height: 65px;
     margin: 0 auto;
-    background-color: #1a243a;
+    background-color: #0f1013 /*#1a243a*/;
 }
 
     .footer .container {
@@ -478,12 +478,11 @@ input:focus {
 
 
 
-.faq{
+.faq {
     width: 1245px;
     height: 755px;
     margin: auto;
-    background-color: #1a243a;
-    
+    background-color: #0f1013 /*#1a243a*/;
 }
 
 .main .container{
@@ -531,12 +530,11 @@ input:focus {
 */
 
 
-.contact{
+.contact {
     width: 1245px;
     height: 530px;
     margin: auto;
-    background-color: #1a243a;
-    
+    background-color: #0f1013 /*#1a243a*/;
 }
 
 .contact .container{
@@ -762,7 +760,7 @@ input:focus {
     color: #ccc;
     line-height: 25px;
     box-sizing: border-box;
-    padding: 2px 2px;
+    padding: 2px 6px;
 }
 
 .comment-form .comment{
@@ -898,10 +896,11 @@ input:focus {
 }
 
 .login {
+    overflow: hidden;
     width: 1245px;
     min-height: 450px;
     margin: auto;
-    background-color: #1a243a;
+    background-color: #0f1013 /*#1a243a*/;
     padding-bottom: 10px;
 }
 
@@ -943,4 +942,21 @@ input:focus {
 }
 
 
+.link-page-avtive {
+    display: inline-block;
+    border: none;
+    margin: 1px 3px;
+    background-color: #7f0e0e;
+    border-radius: 5px;
+    transition: all .2s ease-in-out;
+    outline: none;
+    text-decoration: none;
+    padding: 7px 10px;
+    box-shadow: 0 0 5px 1px rgba(255,255,255,0.5);
+}
 
+.link-page {
+    padding: 7px 10px;
+    color: red;
+    text-decoration: none;
+}

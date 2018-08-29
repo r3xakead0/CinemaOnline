@@ -157,9 +157,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HtmlHelpers\PagingHelper.cs" />
+    <Compile Include="Models\MoviessListViewModel.cs" />
     <Compile Include="Models\ContainerMovie.cs" />
     <Compile Include="Models\Models.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\PagingInfo.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\MovieContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -177,6 +180,9 @@
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="image\LogoMovieImg\1.jpg" />
+    <Content Include="image\LogoMovieImg\12v508249532_b63d3cf.jpg" />
+    <Content Include="image\LogoMovieImg\1479490011z18_1b03526.jpg" />
+    <Content Include="image\LogoMovieImg\151721x54945_027451c.jpg" />
     <Content Include="image\LogoMovieImg\18d7476242_200x300.jpg" />
     <Content Include="image\LogoMovieImg\582c43273_200x300.jpg" />
     <Content Include="image\LogoMovieImg\5bf987ab8_200x300.jpg" />

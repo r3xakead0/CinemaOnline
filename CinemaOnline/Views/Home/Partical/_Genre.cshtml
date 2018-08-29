@@ -3,50 +3,43 @@
 <section class="genre">
     <div class="container">
         <div>
-
-            @*@Html.ActionLink("Вестерн", "Index", "Home", new { genre = "вестерн" }, null)
-            @Html.ActionLink("История", "Index", "Home", new { genre = "история" }, null)
-            @Html.ActionLink("Семейный", "Index", "Home", new { genre = "семейный" }, null)*@
-
-
-
-            <a href="#">вестерн</a>
-            <a href="#">история</a>
-            <a href="#">семейный</a>
+            @Html.ActionLink("Вестерн", "Genre", "Home", new { genre = "вестерн" }, null)
+            @Html.ActionLink("История", "Genre", "Home", new { genre = "история" }, null)
+            @Html.ActionLink("Семейный", "Genre", "Home", new { genre = "семейный" }, null)
         </div>
         <div>
-            @*@Html.ActionLink("Биография", "Index", "Home", new { genre = "биография" }, null)
-            @Html.ActionLink("Комедия", "Index", "Home", new { genre = "комедия" }, null)
-            @Html.ActionLink("Сериалы", "Index", "Home", new { genre = "сериалы" }, null)*@
+            @Html.ActionLink("Биография", "Genre", "Home", new { genre = "биография" }, null)
+            @Html.ActionLink("Комедия", "Genre", "Home", new { genre = "комедия" }, null)
+            @Html.ActionLink("Сериалы", "Genre", "Home", new { genre = "сериалы" }, null)
+        </div>
+        <div>
+            @Html.ActionLink("Боевик", "Genre", "Home", new { genre = "боевик" }, null)
+            @Html.ActionLink("Криминал", "Genre", "Home", new { genre = "криминал" }, null)
+            @Html.ActionLink("Спорт", "Genre", "Home", new { genre = "спорт" }, null)
+        </div>
+        <div>
 
-            <a href="#">биография</a>
-            <a href="#">комедия</a>
-            <a href="#">сериалы</a>
+            @Html.ActionLink("Военный", "Genre", "Home", new { genre = "военный" }, null)
+            @Html.ActionLink("Мелодрама", "Genre", "Home", new { genre = "мелодрама" }, null)
+            @Html.ActionLink("Триллер", "Genre", "Home", new { genre = "триллер" }, null)
         </div>
         <div>
-            <a href="#">боевик</a>
-            <a href="#">криминал</a>
-            <a href="#">спорт</a>
+
+            @Html.ActionLink("Детектив", "Genre", "Home", new { genre = "детектив" }, null)
+            @Html.ActionLink("Музыка", "Genre", "Home", new { genre = "музыка" }, null)
+            @Html.ActionLink("Ужасы", "Genre", "Home", new { genre = "ужасы" }, null)
         </div>
         <div>
-            <a href="#">военный</a>
-            <a href="#">мелодрама</a>
-            <a href="#">триллер</a>
-        </div>
-        <div>
-            <a href="#">детектив</a>
-            <a href="#">музыка</a>
-            <a href="#">ужасы</a>
-        </div>
-        <div>
-            <a href="#">драма</a>
-            <a href="#">мультфильм</a>
-            <a href="#">фэнтези</a>
+
+            @Html.ActionLink("Драма", "Genre", "Home", new { genre = "драма" }, null)
+            @Html.ActionLink("Мультфильм", "Genre", "Home", new { genre = "мультфильм" }, null)
+            @Html.ActionLink("Фэнтези", "Genre", "Home", new { genre = "фэнтези" }, null)
         </div>
         <div class="item7">
-            <a href="#">документальный</a>
-            <a href="#">приключения</a>
-            <a href="#">фантастика</a>
+
+            @Html.ActionLink("Документальный", "Genre", "Home", new { genre = "документальный" }, null)
+            @Html.ActionLink("Приключения", "Genre", "Home", new { genre = "приключения" }, null)
+            @Html.ActionLink("Фантастика", "Genre", "Home", new { genre = "фантастика" }, null)
         </div>
     </div>
 </section>
