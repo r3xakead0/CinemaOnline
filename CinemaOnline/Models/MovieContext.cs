@@ -18,8 +18,6 @@ namespace CinemaOnline.Models
 
         //Movie
         public DbSet<Movie> Movies { get; set; }
-        //public DbSet<Genre> Genres { get; set; }
-        //public DbSet<Country> Countries { get; set; }
         public DbSet<Comment> Comments { get; set; }
     }
 

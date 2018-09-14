@@ -173,6 +173,7 @@
     <Content Include="App_Data\CinemaOnline_log.ldf">
       <DependentUpon>CinemaOnline.mdf</DependentUpon>
     </Content>
+    <Content Include="Scripts\scripts.js" />
     <Content Include="Content\style.css" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
@@ -207,6 +208,7 @@
     <Content Include="image\ServiceImg\gidonline.png" />
     <Content Include="image\ServiceImg\h-logo.png" />
     <Content Include="image\ServiceImg\noav.png" />
+    <Content Include="image\ServiceImg\up-arrow.svg" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

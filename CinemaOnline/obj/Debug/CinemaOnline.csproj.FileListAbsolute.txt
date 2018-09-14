@@ -52,4 +52,5 @@ c:\users\nikc\source\repos\CinemaOnline\CinemaOnline\bin\ru\System.Web.WebPages.
 c:\users\nikc\source\repos\CinemaOnline\CinemaOnline\obj\Debug\CinemaOnline.csproj.CoreCompileInputs.cache
 c:\users\nikc\source\repos\CinemaOnline\CinemaOnline\obj\Debug\CinemaOnline.dll
 c:\users\nikc\source\repos\CinemaOnline\CinemaOnline\obj\Debug\CinemaOnline.pdb
-C:\Users\Nikc\source\repos\CinemaOnline\CinemaOnline\obj\Debug\CinemaOnline.csprojResolveAssemblyReference.cache
+C:\Users\Nikc\source\repos\CinemaOnline\CinemaOnline\obj\Debug\CinemaOnline.csprojAssemblyReference.cache
+C:\Users\Nikc\source\repos\CinemaOnline\CinemaOnline\obj\Debug\CinemaOnline.csproj.CopyComplete

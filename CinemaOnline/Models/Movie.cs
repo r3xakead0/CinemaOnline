@@ -12,7 +12,7 @@ namespace CinemaOnline.Models
 
         [Required(ErrorMessage = "Поле не должно быть пустым")]
         [Display(Name = "Название")]
-        public string NameM { get; set; } //Название
+        public string NameM { get; set; } 
 
         [Required(ErrorMessage = "Поле не должно быть пустым")]
         [Display(Name = "Описание")]
@@ -58,15 +58,6 @@ namespace CinemaOnline.Models
         [Display(Name = "Страны")]
         public string Country { get; set; }
 
-        //public List<Genre> Genre { get; set; }//список жанров
-        //public List<Country> Country { get; set; }//список стран 
-
-        //public Movie()
-        //{
-        //    Genre = new List<Genre>();
-        //    Country = new List<Country>();
-        //}
-
     }
 
     public class Comment
@@ -91,24 +82,4 @@ namespace CinemaOnline.Models
         public Movie Movie { get; set; }
     }
 
-    //таб не раб
-    
-        //public class Genre
-        //{
-        //    public int GenreId { get; set;}
-        //    public string NameG { get; set; }
-
-        //    //public int MovieId { get; set; }
-        //    public virtual Movie Movie { get; set; }
-        //}
-
-        //public class Country
-        //{
-        //    public int CountryId { get; set; }
-        //    public string NameC { get; set; }
-
-        //    //public int MovieId { get; set; }
-        //    public virtual Movie Movie { get; set; }
-        //}
- 
 }

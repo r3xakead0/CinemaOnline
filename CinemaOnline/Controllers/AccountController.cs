@@ -21,22 +21,19 @@ namespace CinemaOnline.Controllers
         {
             if (ModelState.IsValid)
             {
-                // поиск пользователя в бд
                 User user = null;
                 using (MovieContext db = new MovieContext())
                 {
                     user = db.Users.FirstOrDefault(u => u.Name == model.Name && u.Password == model.Password);
-
                 }
                 if (user != null)
                 {
-                    //регистрационніе куки
                     FormsAuthentication.SetAuthCookie(model.Name, true);
                     return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Пользователя с таким логином и паролем нет");//ошибка валидации 
+                    ModelState.AddModelError("", "Пользователя с таким логином и паролем нет");
                 }
             }
 
